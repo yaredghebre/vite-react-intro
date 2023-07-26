@@ -1,15 +1,19 @@
 // ALERT and BUTTON EXAMPLE
-import { Children } from "react";
+import { Children, useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 
 function App() {
+  // state variable
+  const [alertVisible, setAlertVisibility] = useState(false);
   return (
     <div>
-      <Alert>
-        Hello <span className="fw-bold">World</span>
-      </Alert>
-      <Button color="danger" onClick={() => console.log("Clicked")}>
+      {alertVisible && (
+        <Alert onClose={() => setAlertVisibility(false)}>
+          Hello <span className="fw-bold">World</span>
+        </Alert>
+      )}
+      <Button color="danger" onClick={() => setAlertVisibility(true)}>
         Send
       </Button>
     </div>
