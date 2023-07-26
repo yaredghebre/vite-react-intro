@@ -1,5 +1,7 @@
-// ALERT EXAMPLE
+// ALERT and BUTTON EXAMPLE
+import { Children } from "react";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
   return (
@@ -7,6 +9,9 @@ function App() {
       <Alert>
         Hello <span className="fw-bold">World</span>
       </Alert>
+      <Button color="danger" onClick={() => console.log("Clicked")}>
+        Send
+      </Button>
     </div>
   );
 }
