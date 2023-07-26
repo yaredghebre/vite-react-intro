@@ -1,8 +1,12 @@
 // import { Fragment } from "react";
+import { MouseEvent } from "react"; // to have TypeScript Autocompletion on events
 
 function ListGroup() {
   let items = ["Roma", "Milano", "Venezia", "Napoli"];
-  items = [];
+  //   items = [];
+
+  // Event Handler
+  const handleClick = (event: MouseEvent) => console.log(event);
 
   // Using a conditional rendering, in JSX recall the function with {}
   //   const getMessage = () => {
@@ -18,8 +22,10 @@ function ListGroup() {
       <h1>List</h1>
       {items.length === 0 && <p>No cities found</p>}
       <ul className="list-group">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
+        {items.map((item, index) => (
+          <li className="list-group-item" key={item} onClick={handleClick}>
+            {item}
+          </li>
         ))}
       </ul>
     </>
